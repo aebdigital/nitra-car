@@ -10,104 +10,266 @@ const API_CONFIG = {
   useTenantEndpoints: true,
   // Fallback to general endpoints if tenant-specific fail
   enableFallback: true,
-  // Use mock data for development (set to false when API is ready)
-  useMockData: false
+  // Use mock data for development (set to true to avoid backend calls)
+  useMockData: true
 };
 
 // Mock data for development/fallback
 const mockCarsData = [
+  // Renault Arkana AT
   {
-    _id: 'mock1',
-    brand: 'Škoda',
-    model: 'Octavia',
-    year: 2023,
+    _id: 'ark1',
+    brand: 'Renault',
+    model: 'Arkana AT',
+    year: 2024,
     category: 'stredna',
-    fuelType: 'gasoline',
-    transmission: 'manual',
+    fuelType: 'petrol',
+    transmission: 'automatic',
     seats: 5,
     doors: 4,
     dailyRate: 45,
     weeklyRate: 280,
     monthlyRate: 1100,
-    description: 'Moderný a spoľahlivý sedan, ideálny pre dlhšie cesty.',
-    features: ['air-conditioning', 'gps', 'bluetooth'],
+    power: '110kW',
+    status: 'available',
+    deposit: 700,
+    description: 'Elegantný crossover coupe s automatickou prevodovkou.',
+    features: ['air-conditioning', 'gps', 'bluetooth', 'rear-camera'],
     images: [
       {
-        url: '/api/placeholder/600/400',
-        description: 'Škoda Octavia',
+        url: '/src/assets/AUTA/RENAULT ARKANA/OG-Arkana.jpg',
+        description: 'Renault Arkana AT',
         isPrimary: true
       }
     ],
     location: {
-      name: 'Banská Bystrica',
+      name: 'Bratislava',
       address: {
-        street: 'Zvolenská cesta 6465/8',
-        city: 'Banská Bystrica',
-        zipCode: '974 05',
+        street: 'Záhradnícka 68',
+        city: 'Bratislava',
+        zipCode: '821 08',
         country: 'Slovensko'
       }
     }
   },
+  
+  // Seat Tarraco FR 4WD AT
   {
-    _id: 'mock2',
-    brand: 'Volkswagen',
-    model: 'Golf',
-    year: 2022,
+    _id: 'tar1',
+    brand: 'Seat',
+    model: 'Tarraco FR 4WD AT',
+    year: 2023,
+    category: 'vyssia',
+    fuelType: 'diesel',
+    transmission: 'automatic',
+    seats: 7,
+    doors: 4,
+    dailyRate: 70,
+    weeklyRate: 450,
+    monthlyRate: 1800,
+    power: '150kW',
+    status: 'available',
+    deposit: 1000,
+    description: 'Výkonné 7-miestne SUV s pohonom všetkých kolies a športovým paketom FR.',
+    features: ['air-conditioning', 'gps', 'bluetooth', 'heated-seats', '4x4', 'leather-seats'],
+    images: [
+      {
+        url: '/src/assets/AUTA/SEAT TARRACO/OG-Tarraco.jpg',
+        description: 'Seat Tarraco FR 4WD AT',
+        isPrimary: true
+      }
+    ],
+    location: {
+      name: 'Bratislava',
+      address: {
+        street: 'Záhradnícka 68',
+        city: 'Bratislava',
+        zipCode: '821 08',
+        country: 'Slovensko'
+      }
+    }
+  },
+  
+  // Škoda Octavia 4 Combi AT
+  {
+    _id: 'oct1',
+    brand: 'Škoda',
+    model: 'Octavia 4 Combi AT',
+    year: 2024,
+    category: 'stredna',
+    fuelType: 'diesel',
+    transmission: 'automatic',
+    seats: 5,
+    doors: 4,
+    dailyRate: 50,
+    weeklyRate: 320,
+    monthlyRate: 1250,
+    power: '110kW',
+    status: 'available',
+    deposit: 800,
+    description: 'Najnovšie kombi Škoda s veľkým batožinovým priestorom a modernou technikou.',
+    features: ['air-conditioning', 'gps', 'bluetooth', 'cruise-control', 'extra-luggage'],
+    images: [
+      {
+        url: '/src/assets/AUTA/SKODA OCTAVIA 4/OG-Octavia.png',
+        description: 'Škoda Octavia 4 Combi AT',
+        isPrimary: true
+      }
+    ],
+    location: {
+      name: 'Bratislava',
+      address: {
+        street: 'Záhradnícka 68',
+        city: 'Bratislava',
+        zipCode: '821 08',
+        country: 'Slovensko'
+      }
+    }
+  },
+  
+  // Škoda Scala Ambition AT
+  {
+    _id: 'sca1',
+    brand: 'Škoda',
+    model: 'Scala Ambition AT',
+    year: 2023,
     category: 'ekonomicka',
-    fuelType: 'gasoline',
+    fuelType: 'petrol',
+    transmission: 'automatic',
+    seats: 5,
+    doors: 4,
+    dailyRate: 35,
+    weeklyRate: 230,
+    monthlyRate: 900,
+    power: '85kW',
+    status: 'available',
+    deposit: 600,
+    description: 'Moderný kompaktný liftback s automatickou prevodovkou a bohatým vybavením.',
+    features: ['air-conditioning', 'bluetooth', 'usb-ports', 'cruise-control'],
+    images: [
+      {
+        url: '/src/assets/AUTA/SKODA SCALA ambition/OG-Scala.jpg',
+        description: 'Škoda Scala Ambition AT',
+        isPrimary: true
+      }
+    ],
+    location: {
+      name: 'Bratislava',
+      address: {
+        street: 'Záhradnícka 68',
+        city: 'Bratislava',
+        zipCode: '821 08',
+        country: 'Slovensko'
+      }
+    }
+  },
+  
+  // Škoda Scala MonteCarlo AT
+  {
+    _id: 'mon1',
+    brand: 'Škoda',
+    model: 'Scala MonteCarlo AT',
+    year: 2024,
+    category: 'stredna',
+    fuelType: 'petrol',
+    transmission: 'automatic',
+    seats: 5,
+    doors: 4,
+    dailyRate: 42,
+    weeklyRate: 260,
+    monthlyRate: 1020,
+    power: '110kW',
+    status: 'available',
+    deposit: 700,
+    description: 'Športová verzia Scala s dizajnom MonteCarlo a výkonným motorom.',
+    features: ['air-conditioning', 'gps', 'bluetooth', 'heated-seats', 'sport-package'],
+    images: [
+      {
+        url: '/src/assets/AUTA/SKODA SCALA MonterCarlo/OG-MonteCarlo.jpeg',
+        description: 'Škoda Scala MonteCarlo AT',
+        isPrimary: true
+      }
+    ],
+    location: {
+      name: 'Bratislava',
+      address: {
+        street: 'Záhradnícka 68',
+        city: 'Bratislava',
+        zipCode: '821 08',
+        country: 'Slovensko'
+      }
+    }
+  },
+  
+  // Toyota Corolla AT
+  {
+    _id: 'cor1',
+    brand: 'Toyota',
+    model: 'Corolla AT',
+    year: 2023,
+    category: 'ekonomicka',
+    fuelType: 'hybrid',
     transmission: 'automatic',
     seats: 5,
     doors: 4,
     dailyRate: 38,
     weeklyRate: 240,
     monthlyRate: 950,
-    description: 'Kompaktné auto s nízkou spotrebou paliva.',
-    features: ['air-conditioning', 'bluetooth'],
+    power: '90kW',
+    status: 'available',
+    deposit: 600,
+    description: 'Spoľahlivý hybridný sedan s nízkou spotrebou paliva.',
+    features: ['air-conditioning', 'bluetooth', 'rear-camera', 'hybrid'],
     images: [
       {
-        url: '/api/placeholder/600/400',
-        description: 'VW Golf',
+        url: '/src/assets/AUTA/Toyota/OG-Corolla.jpg',
+        description: 'Toyota Corolla AT',
         isPrimary: true
       }
     ],
     location: {
-      name: 'Zvolen',
+      name: 'Bratislava',
       address: {
-        street: 'Obchodná 9520/4',
-        city: 'Zvolen',
-        zipCode: '960 01',
+        street: 'Záhradnícka 68',
+        city: 'Bratislava',
+        zipCode: '821 08',
         country: 'Slovensko'
       }
     }
   },
+  
+  // VW Touran Highline AT, 7 miestne
   {
-    _id: 'mock3',
-    brand: 'BMW',
-    model: 'X3',
-    year: 2023,
-    category: 'vyssia',
+    _id: 'tou1',
+    brand: 'Volkswagen',
+    model: 'Touran Highline AT, 7 miestne',
+    year: 2024,
+    category: 'viacmiestne',
     fuelType: 'diesel',
     transmission: 'automatic',
-    seats: 5,
+    seats: 7,
     doors: 4,
-    dailyRate: 85,
-    weeklyRate: 550,
-    monthlyRate: 2200,
-    description: 'Luxusné SUV s vynikajúcim výkonom.',
-    features: ['air-conditioning', 'gps', 'bluetooth', 'heated-seats', 'leather-seats'],
+    dailyRate: 65,
+    weeklyRate: 420,
+    monthlyRate: 1650,
+    power: '110kW',
+    status: 'available',
+    deposit: 900,
+    description: 'Priestranný 7-miestny rodinný van s prémiovým vybavením Highline.',
+    features: ['air-conditioning', 'gps', 'bluetooth', 'heated-seats', 'extra-luggage', 'cruise-control'],
     images: [
       {
-        url: '/api/placeholder/600/400',
-        description: 'BMW X3',
+        url: '/src/assets/AUTA/VOLKSWAGEN TOURAN/OG-Touran.jpg',
+        description: 'VW Touran Highline AT, 7 miestne',
         isPrimary: true
       }
     ],
     location: {
-      name: 'Banská Bystrica',
+      name: 'Bratislava',
       address: {
-        street: 'Zvolenská cesta 6465/8',
-        city: 'Banská Bystrica',
-        zipCode: '974 05',
+        street: 'Záhradnícka 68',
+        city: 'Bratislava',
+        zipCode: '821 08',
         country: 'Slovensko'
       }
     }
@@ -254,6 +416,12 @@ export const carsAPI = {
 
   // Get single car details for RIVAL tenant
   getCarDetails: async (carId) => {
+    // Use mock data if configured
+    if (API_CONFIG.useMockData) {
+      console.log('Using mock data for car details');
+      return mockCarsData.find(car => car._id === carId) || mockCarsData[0];
+    }
+
     // Try tenant-specific endpoint first
     if (API_CONFIG.useTenantEndpoints) {
       try {
@@ -295,6 +463,12 @@ export const carsAPI = {
 
   // Get car availability for date range for RIVAL tenant
   getCarAvailability: async (carId, startDate, endDate) => {
+    // Use mock data if configured
+    if (API_CONFIG.useMockData) {
+      console.log('Using mock data for car availability');
+      return { isAvailable: true, status: 'available' };
+    }
+
     const queryParams = new URLSearchParams({
       startDate: startDate.toISOString().split('T')[0],
       endDate: endDate.toISOString().split('T')[0]
@@ -368,6 +542,35 @@ export const reservationsAPI = {
   // Create a new reservation using RIVAL tenant-specific endpoint
   createPublicReservation: async (reservationData) => {
     console.log('Sending reservation data to RIVAL backend:', reservationData);
+    
+    // Use mock data if configured
+    if (API_CONFIG.useMockData) {
+      console.log('Using mock data for reservation creation');
+      // Return mock successful reservation
+      return {
+        reservation: {
+          _id: 'mock-reservation-' + Date.now(),
+          ...reservationData,
+          status: 'confirmed',
+          createdAt: new Date().toISOString(),
+          totalAmount: 150
+        },
+        car: mockCarsData.find(car => car._id === reservationData.carId) || mockCarsData[0],
+        customer: {
+          _id: 'mock-customer-' + Date.now(),
+          firstName: reservationData.firstName,
+          lastName: reservationData.lastName,
+          email: reservationData.email,
+          phone: reservationData.phone
+        },
+        pricing: {
+          rentalCost: 150,
+          deposit: 0,
+          totalCost: 150,
+          days: Math.ceil((new Date(reservationData.endDate) - new Date(reservationData.startDate)) / (1000 * 60 * 60 * 24))
+        }
+      };
+    }
     
     // Try tenant-specific endpoint first
     if (API_CONFIG.useTenantEndpoints) {

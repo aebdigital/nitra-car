@@ -48,6 +48,20 @@
   .card {
     @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300;
   }
+
+  /* Continuous scroll animation for reviews */
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
   
   .input-field {
     @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200;

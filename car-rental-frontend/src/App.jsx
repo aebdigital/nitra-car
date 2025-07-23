@@ -6,16 +6,15 @@ import HomePage from './pages/HomePage';
 import FleetPage from './pages/FleetPage';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
-import FAQPage from './pages/FAQPage';
 import BookingPage from './pages/BookingPage';
 import LoginPage from './pages/LoginPage';
 import CarDetailsPage from './pages/CarDetailsPage';
 import TermsPage from './pages/TermsPage';
-import ServicesPage from './pages/ServicesPage';
-import PricingPage from './pages/PricingPage';
+import CennikPage from './pages/CennikPage';
+import FAQPage from './pages/FAQPage';
 import PrivacyPage from './pages/PrivacyPage';
-import ComplaintsPage from './pages/ComplaintsPage';
-import SanctionsPage from './pages/SanctionsPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import './index.css';
 
 function App() {
@@ -29,15 +28,14 @@ function App() {
           <Route path="/car/:id" element={<CarDetailsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/faq" element={<FAQPage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/terms" element={<TermsPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/cennik" element={<CennikPage />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/complaints" element={<ComplaintsPage />} />
-          <Route path="/sanctions" element={<SanctionsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<BlogPostPage />} />
         </Routes>
       </DefaultLayout>
       <ApiStatus />

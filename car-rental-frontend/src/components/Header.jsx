@@ -1,27 +1,21 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Bars3Icon, XMarkIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
-import RivalLogo from '../assets/RIVAL LOGO-03.png';
-import FacebookIcon from '../assets/facebook.png';
-import InstagramIcon from '../assets/instagram.png';
-import GoogleIcon from '../assets/icons8-google-48.png';
+import { Bars3Icon, XMarkIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import Logo from '../assets/logo.png';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeLanguage, setActiveLanguage] = useState('SK');
   const location = useLocation();
 
-  const leftNavigation = [
-    { name: 'Úvod', href: '/' },
+  const navigation = [
+    { name: 'Domov', href: '/' },
     { name: 'Ponuka vozidiel', href: '/fleet' },
-    { name: 'Cenník', href: '/pricing' },
-    { name: 'Doplnkové služby', href: '/services' },
-  ];
-
-  const rightNavigation = [
-    { name: 'Podmienky', href: '/terms' },
+    { name: 'Cenník', href: '/cennik' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'FAQ', href: '/faq' },
     { name: 'O nás', href: '/about' },
     { name: 'Kontakt', href: '/contact' },
-    { name: 'Otázky a odpovede', href: '/faq' },
   ];
 
   const isActive = (path) => {
@@ -31,180 +25,122 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
-      {/* Top Header Bar */}
-      <div className="bg-gray-100 border-b border-gray-200">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '90rem' }}>
-          <div className="flex h-12 items-center justify-between">
-            <div className="hidden md:flex items-center space-x-4">
-              {/* Phone Button */}
-              <a
-                href="tel:+421907633517"
-                className="flex items-center px-3 py-1 bg-green-600 hover:bg-green-700 rounded text-sm font-medium text-white transition-colors duration-200"
-              >
-                <PhoneIcon className="h-4 w-4 mr-2" />
-                +421 907 633 517
-              </a>
-              
-              {/* Contact Form Button */}
-              <Link
-                to="/contact"
-                className="flex items-center px-3 py-1 bg-green-600 hover:bg-green-700 rounded text-sm font-medium text-white transition-colors duration-200"
-              >
-                <EnvelopeIcon className="h-4 w-4 mr-2" />
-                NAPÍŠTE NÁM / FORMULÁR
-              </Link>
-            </div>
-            
-            {/* Mobile: Empty left side */}
-            <div className="md:hidden"></div>
-            
-            <div className="flex items-center space-x-4">
-              {/* Social Icons */}
-              <a
-                href="https://www.facebook.com/pozicauto"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity duration-200"
-              >
-                <img src={FacebookIcon} alt="Facebook" className="h-5 w-5" />
-              </a>
-              
-              <a
-                href="https://www.instagram.com/rival_autopozicovna/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity duration-200"
-              >
-                <img src={InstagramIcon} alt="Instagram" className="h-5 w-5" />
-              </a>
-              
-              {/* Google Reviews Button */}
-              <a
-                href="https://maps.google.com/maps?cid=1405297772265219924"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center px-3 py-1 bg-white hover:bg-gray-50 rounded shadow-md text-sm font-medium text-gray-800 transition-colors duration-200 border border-gray-200"
-              >
-                <img src={GoogleIcon} alt="Google" className="h-4 w-4 mr-2" />
-                Recenzie
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <nav className="mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top" style={{ maxWidth: '90rem' }}>
-        <div className="flex h-16 items-center justify-between">
+    <header className="fixed left-1/2 transform -translate-x-1/2 z-50 bg-white shadow-lg backdrop-blur-md" style={{ top: '50px', width: '80%', borderRadius: '40px' }}>
+      <nav className="px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
           
-          {/* Left Navigation - Desktop */}
-          <div className="hidden lg:flex items-center space-x-3">
-            {leftNavigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`px-3 py-2 text-sm font-medium uppercase transition-colors duration-200 relative group ${
-                  isActive(item.href)
-                    ? 'text-green-600 border-b-2 border-green-600'
-                    : 'text-gray-700 hover:text-green-600'
-                }`}
-              >
-                {item.name}
-                {!isActive(item.href) && (
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all duration-300 group-hover:w-full"></span>
-                )}
-              </Link>
-            ))}
-          </div>
-
-          {/* Logo Box - Center */}
-          <div className="flex items-center relative z-10" style={{ marginLeft: '10px' }}>
+          {/* Logo */}
+          <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <img 
-                src={RivalLogo} 
-                alt="Rival Logo" 
-                className="h-16 w-auto border-4 border-white shadow-2xl transform md:scale-150 scale-125"
-                style={{ 
-                  filter: 'drop-shadow(0 8px 15px rgba(0, 0, 0, 0.3))',
-                  marginTop: '-12px',
-                  marginBottom: '-12px'
-                }}
-              />
+              <img src={Logo} alt="Nitra Car" className="h-12 w-auto" />
             </Link>
           </div>
 
-          {/* Right Navigation - Desktop */}
-          <div className="hidden lg:flex items-center space-x-3">
-            {rightNavigation.map((item) => (
+          {/* Desktop Navigation - Center */}
+          <div className="hidden lg:flex items-center space-x-10">
+            {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`px-3 py-2 text-sm font-medium uppercase transition-colors duration-200 relative group ${
+                className={`text-base font-semibold transition-colors duration-200 relative pb-1 ${
                   isActive(item.href)
-                    ? 'text-green-600 border-b-2 border-green-600'
-                    : 'text-gray-700 hover:text-green-600'
+                    ? 'text-black'
+                    : 'text-black hover:text-gray-700'
                 }`}
+                style={{
+                  borderBottom: isActive(item.href) ? '2px solid black' : '2px solid transparent'
+                }}
               >
                 {item.name}
-                {!isActive(item.href) && (
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all duration-300 group-hover:w-full"></span>
-                )}
               </Link>
             ))}
+          </div>
+
+          {/* Right Side - Language & Manage Booking */}
+          <div className="hidden lg:flex items-center space-x-5">
+            {/* Language Selector Toggle */}
+            <div className="flex items-center space-x-3 text-gray-700">
+              <button 
+                onClick={() => setActiveLanguage('SK')}
+                className={`flex items-center space-x-1 transition-colors duration-200 ${
+                  activeLanguage === 'SK' ? 'opacity-100' : 'opacity-50 hover:opacity-75'
+                }`}
+              >
+                <span className="text-lg">🇸🇰</span>
+                <span className={`text-base font-semibold ${
+                  activeLanguage === 'SK' ? 'text-black' : 'text-gray-600'
+                }`}>SK</span>
+              </button>
+              <span className="text-gray-400">|</span>
+              <button 
+                onClick={() => setActiveLanguage('EN')}
+                className={`flex items-center space-x-1 transition-colors duration-200 ${
+                  activeLanguage === 'EN' ? 'opacity-100' : 'opacity-50 hover:opacity-75'
+                }`}
+              >
+                <span className="text-lg">🇬🇧</span>
+                <span className={`text-base font-semibold ${
+                  activeLanguage === 'EN' ? 'text-black' : 'text-gray-600'
+                }`}>EN</span>
+              </button>
+            </div>
+            
+            {/* Manage Booking Button */}
+            <Link
+              to="/fleet"
+              className="bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-md text-base font-medium transition-colors duration-200"
+            >
+              Objednať auto
+            </Link>
           </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
             <button
               type="button"
-              className="text-gray-700 hover:text-green-600 p-2"
+              className="text-black hover:text-gray-700 p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <span className="sr-only">Otvoriť hlavné menu</span>
+              <span className="sr-only">Open main menu</span>
               {mobileMenuOpen ? (
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="h-7 w-7" aria-hidden="true" />
               ) : (
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                <Bars3Icon className="h-7 w-7" aria-hidden="true" />
               )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Overlay */}
-        <>
-          {/* Blur Overlay - covers main content when menu is open */}
-          <div 
-            className={`lg:hidden fixed inset-0 bg-white bg-opacity-60 backdrop-blur-md z-30 transition-opacity duration-300 ${
-              mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-            }`}
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ 
-              top: '115px' // Start below the header with 15px buffer to avoid overlap
-            }}
-          ></div>
-          
-          {/* Mobile Menu */}
-          <div className={`lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg z-50 overflow-hidden transition-all duration-300 ease-in-out ${
-            mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}>
-            <div className="space-y-1 pb-3 pt-2">
-              {[...leftNavigation, ...rightNavigation].map((item) => (
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg backdrop-blur-md rounded-lg mt-2">
+              {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`block px-3 py-2 text-base font-medium uppercase transition-colors duration-200 ${
+                  className={`block px-4 py-3 text-lg font-semibold rounded-md transition-colors duration-200 ${
                     isActive(item.href)
-                      ? 'text-green-600 bg-green-50'
-                      : 'text-gray-700 hover:text-green-600 hover:bg-gray-50'
+                      ? 'text-white bg-blue-600'
+                      : 'text-black hover:text-gray-700 hover:bg-gray-100'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
+              <div className="border-t border-white/20 pt-2">
+                <Link
+                  to="/booking"
+                  className="block px-4 py-3 text-lg font-medium bg-blue-600 text-white rounded-md text-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Objednať auto
+                </Link>
+              </div>
             </div>
           </div>
-        </>
+        )}
       </nav>
     </header>
   );

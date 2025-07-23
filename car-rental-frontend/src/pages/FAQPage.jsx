@@ -1,165 +1,326 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
-import Image1 from '../assets/1.jpg';
+import Slider1 from '../assets/Slider1.jpg';
 
 const FAQPage = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
 
   const faqs = [
     {
-      question: "Aké doklady sú potrebné k uzatvoreniu zmluvy o prenájme?",
-      answer: "Občiansky alebo cestovný pas + vodičský preukaz."
+      question: "Aké doklady sú potrebné pri prenájme vozidla?",
+      answer: `Fyzická osoba (občan Slovenskej republiky):
+• občiansky preukaz
+• vodičský preukaz
+
+Fyzická osoba (cudzinec):
+• cestovný pas
+• vodičský preukaz
+
+Právnická osoba:
+• výpis z obchodného registra alebo živnostenský list nie starší ako 3 mesiace
+• občiansky a vodičský preukaz osoby, ktorá bude vozidlo užívať
+• zmluvu o prenájme vozidla môže podpísať iba konateľ spoločnosti alebo jeho splnomocnenec (potrebné overené splnomocnenie)`
     },
     {
-      question: "Aké doklady dostávam k vozidlu?",
-      answer: "Zmluva o prenájme, technický preukaz, doklad o poistení, kontakt na podporu."
+      question: "Aké sú platobné podmienky?",
+      answer: `Za prenájom sa platí vopred pri preberaní auta, a to v hotovosti, prevodom na bankový účet alebo kartou online. Hradí sa čiastka za prenájom vozidla a vratná záloha, ktorá sa v plnej výške vráti klientovi pri vrátení nepoškodeného vozidla.
+
+Akceptujeme tieto platobné karty:
+• Visa
+• Mastercard
+• American Express
+• Maestro`
     },
     {
-      question: "V akom stave je vozidlo pri prevzatí?",
-      answer: "Čisté, s plnou nádržou. V rovnakom stave ho treba vrátiť."
+      question: "Ako si rezervovať auto?",
+      answer: "Auto si môžete rezervovať on-line cez našu stránku, telefonicky prípadne elektronickou poštou."
     },
     {
-      question: "Sú vozidlá na webe vždy voľné?",
-      answer: "Zobrazené sú všetky vozidlá vo vozovom parku. Aktuálnu dostupnosť odporúčame overiť telefonicky alebo e-mailom."
+      question: "Koľko kilometrov je zahrnutých v cene prenájmu?",
+      answer: "V cene je zahrnutých 200 km za každý deň prenájmu vozidla (tzn. ak si vozidlo prenajmete na 2 dni tak máte 400 km v cene). Za každý kilometer navyše sa pripočítava 0,13 EUR."
     },
     {
-      question: "Sú obmedzenia na typ ciest?",
-      answer: "Áno. Vozidlá smú jazdiť len po oficiálnych cestných komunikáciách. Poľné a vedľajšie cesty sú zakázané."
+      question: "Sú ceny uvedené na internetovej stránke Nitra-car aktuálne?",
+      answer: "Áno, na stránke Nitra-car sú ceny vždy aktuálne a konečné."
     },
     {
-      question: "Kedy je moja objednávka potvrdená?",
-      answer: "Po vyplnení formulára vás do 24 hodín kontaktujeme s potvrdením."
+      question: "Môžem s vozidlom vycestovať do zahraničia?",
+      answer: "S vozidlom môžete cestovať po celej Európe, okrem krajín: Ukrajina, Rumunsko a Albánsko."
     },
     {
-      question: "Ako zruším rezerváciu?",
-      answer: "Jednoducho telefonicky na čísle: +421 907 633 517"
+      question: "Sú vozidlá Nitra-car poistené?",
+      answer: "Naše vozidlá sú plne havarijne a zákonne poistené. V prípade hrubého porušenia predpisov (užitie alkoholu, drog a iných omamných látok) je klient plne zodpovedný za všetky škody spôsobené na prenajatom vozidle."
     },
     {
-      question: "Aké sú storno podmienky?",
-      answer: "1–7 dní pred prenájmom: 100 % z ceny\n8–14 dní: 50 % (min. 100 €)\n15+ dní: 10 % (min. 100 €)\nStorno sa dá využiť ako kredit na ďalší prenájom (platnosť 12 mesiacov)."
-    },
-    {
-      question: "V akom predstihu si mám vozidlo rezervovať?",
-      answer: "Odporúčame čím skôr. Pri urgentných požiadavkách volajte pre dostupné modely."
-    },
-    {
-      question: "Potrebujem predĺžiť prenájom – čo robiť?",
-      answer: "Kontaktujte nás čo najskôr, ideálne minimálne 24 hodín pred plánovaným vrátením. Overíme, či je predĺženie možné."
-    },
-    {
-      question: "Cena je za 1 deň?",
-      answer: "Áno. 1 deň = 24 hodín od času prevzatia (napr. od 8:00 do 8:00 nasledujúceho dňa)."
-    },
-    {
-      question: "Cena je vrátane DPH?",
-      answer: "Ceny sú bez DPH. Pre fyzické osoby uvádzame konečné ceny. Pre platcov DPH sa pripočíta +23 % DPH."
-    },
-    {
-      question: "Ako môžem zaplatiť?",
-      answer: "V hotovosti, debetnou alebo kreditnou kartou."
-    },
-    {
-      question: "Do ktorých krajín môžem vycestovať?",
-      answer: "Do celej EÚ okrem Bulharska a Rumunska."
-    },
-    {
-      question: "Dostávam diaľničnú známku?",
-      answer: "Áno. Diaľničná známka pre SR je v cene prenájmu."
-    },
-    {
-      question: "Kde si môžem prevziať vozidlo?",
-      answer: "V mestách: Banská Bystrica, Zvolen, Brezno, Lučenec. Auto vieme pristaviť aj na adresu (za príplatok podľa vzdialenosti, termínu a vozidla)."
-    },
-    {
-      question: "Môžem vozidlo vrátiť večer alebo cez víkend?",
-      answer: "Áno. Túto službu však môže byť potrebné spoplatniť (15 – 30 €). Odporúčame dohodnúť vopred."
-    },
-    {
-      question: "Aké poistenie je v cene?",
-      answer: "Zákonné poistenie (PZP) + havarijné poistenie pre štáty EÚ. Spoluúčasť závisí od kategórie vozidla."
-    },
-    {
-      question: "Čo robiť pri poistnej udalosti?",
-      answer: "Ihneď volajte +421 907 633 517 a kontaktujte políciu SR."
-    },
-    {
-      question: "Aký je minimálny vek vodiča?",
-      answer: "Musíte mať vodičský preukaz minimálne 1 rok."
+      question: "Aký je technický stav vozidiel?",
+      answer: "Našou prioritou je, aby zákazník dostal vždy vozidlo vo výbornom technickom stave, a preto zabezpečujeme jeho pravidelnú údržbu v autorizovanom servise."
     }
   ];
+
 
   const toggleFAQ = (index) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Mini Hero Section */}
       <div 
-        className="relative h-[20vh] bg-cover bg-center flex items-center"
+        className="relative h-[20vh] bg-cover bg-top flex items-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${Image1})`
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${Slider1})`
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <h1 className="text-3xl font-bold text-white">
-            Často kladené otázky
-          </h1>
-        </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm">
-              <button
-                className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span className="text-lg font-medium text-gray-900 pr-4">
-                  {faq.question}
-                </span>
-                {openFAQ === index ? (
-                  <ChevronUpIcon className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                ) : (
-                  <ChevronDownIcon className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                )}
-              </button>
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
-              >
-                <div className="px-6 pb-4">
-                  <p className="text-gray-600 leading-relaxed">
-                    {faq.answer}
-                  </p>
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16" style={{ maxWidth: '90rem' }}>
+        {/* FAQ Section */}
+        <section className="mb-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-3">
+              {faqs.map((faq, index) => (
+                <div key={index} className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                  <button
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:bg-gray-50 rounded-xl"
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <span className="text-lg font-medium text-gray-900 pr-4">
+                      {faq.question}
+                    </span>
+                    {openFAQ === index ? (
+                      <ChevronUpIcon className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                    ) : (
+                      <ChevronDownIcon className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                    )}
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="px-6 pb-4">
+                      <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                        {faq.answer}
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Additional Information */}
+          <div className="max-w-4xl mx-auto mt-12 bg-blue-50 rounded-2xl p-8">
+            <h3 className="text-xl font-semibold text-blue-900 mb-4">Ďalšie informácie</h3>
+            <p className="text-blue-800 mb-4">
+              Stiahnite si zmluvné podmienky <a href="#" className="text-blue-600 underline">tu</a>.
+            </p>
+            <p className="text-blue-800">
+              Ak ste nenašli odpoveď na vašu otázku, radi vám odpovieme telefonicky alebo emailom:
+            </p>
+            <div className="mt-4 space-y-2">
+              <p className="text-blue-800 font-semibold">📞 +421 907 633 517</p>
+              <p className="text-blue-800 font-semibold">✉️ info@nitracar.sk</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Google Reviews - Continuous Slider */}
+      <section className="py-12 bg-white overflow-hidden">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '90rem' }}>
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Recenzie z Google
+              </h2>
+              <div className="flex items-center justify-center mb-4">
+                <div className="flex text-yellow-400 text-xl mr-2">
+                  {'★'.repeat(5)}
+                </div>
+                <span className="text-lg font-semibold text-gray-700">4.8</span>
+                <span className="text-gray-500 ml-2">(47 recenzií)</span>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Contact CTA */}
-        <div className="mt-12 bg-white rounded-lg shadow-sm p-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Stále máte otázky?
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Náš tím zákazníckych služieb je tu pre vás 24/7
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="btn-primary">
-              Kontaktujte nás
-            </a>
-            <a href="tel:+421123456789" className="btn-accent">
-              Zavolajte +421 123 456 789
-            </a>
+            {/* Slider Container */}
+            <div className="relative overflow-hidden">
+              {/* Fade gradients on sides */}
+              <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white via-white/90 to-transparent z-10 pointer-events-none"></div>
+              
+              {/* Scrolling container */}
+              <div className="flex animate-scroll space-x-6 bg-white" style={{ width: 'calc(300px * 16)' }}>
+                {/* Duplicate reviews for seamless loop */}
+                {[...Array(2)].map((_, setIndex) => (
+                  <React.Fragment key={setIndex}>
+                    <div className="bg-white shadow-md rounded-lg p-6 flex-shrink-0" style={{ width: '280px' }}>
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+                          M
+                        </div>
+                        <div className="ml-3">
+                          <p className="font-semibold text-gray-800">Marek Svoboda</p>
+                          <div className="flex text-yellow-400 text-sm">
+                            {'★'.repeat(5)}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        "Výborné služby, profesionálny prístup a kvalitné vozidlá. Odporúčam všetkým, ktorí hľadajú spoľahlivú autopožičovňu v regióne."
+                      </p>
+                      <p className="text-xs text-gray-400 mt-2">pred 2 týždňami</p>
+                    </div>
+
+                    <div className="bg-white shadow-md rounded-lg p-6 flex-shrink-0" style={{ width: '280px' }}>
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                          A
+                        </div>
+                        <div className="ml-3">
+                          <p className="font-semibold text-gray-800">Anna Kováčová</p>
+                          <div className="flex text-yellow-400 text-sm">
+                            {'★'.repeat(5)}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        "Rýchle vybavenie, čisté vozidlá a férové ceny. Už niekoľkokrát som si tu požičala auto a vždy som bola spokojná."
+                      </p>
+                      <p className="text-xs text-gray-400 mt-2">pred 1 mesiacom</p>
+                    </div>
+
+                    <div className="bg-white shadow-md rounded-lg p-6 flex-shrink-0" style={{ width: '280px' }}>
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                          P
+                        </div>
+                        <div className="ml-3">
+                          <p className="font-semibold text-gray-800">Peter Novák</p>
+                          <div className="flex text-yellow-400 text-sm">
+                            {'★'.repeat(4)}
+                            <span className="text-gray-300">★</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        "Dobrá komunikácia a flexibilita. Auto bolo v perfektnom stave. Určite sa vrátim."
+                      </p>
+                      <p className="text-xs text-gray-400 mt-2">pred 3 týždňami</p>
+                    </div>
+                    
+                    <div className="bg-white shadow-md rounded-lg p-6 flex-shrink-0" style={{ width: '280px' }}>
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center text-white font-bold">
+                          L
+                        </div>
+                        <div className="ml-3">
+                          <p className="font-semibold text-gray-800">Lucia Hrubá</p>
+                          <div className="flex text-yellow-400 text-sm">
+                            {'★'.repeat(5)}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        "Skvelý servis! Personál je veľmi ochotný a pomôže s čímkoľvek. Vozidlá sú moderne a udržiavané."
+                      </p>
+                      <p className="text-xs text-gray-400 mt-2">pred 5 dňami</p>
+                    </div>
+                    
+                    <div className="bg-white shadow-md rounded-lg p-6 flex-shrink-0" style={{ width: '280px' }}>
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+                          J
+                        </div>
+                        <div className="ml-3">
+                          <p className="font-semibold text-gray-800">Ján Moravčík</p>
+                          <div className="flex text-yellow-400 text-sm">
+                            {'★'.repeat(5)}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        "Najlepšia autopožičovňa v okolí. Vždy majú dostupné vozidlá a ceny sú konkurencieschopné."
+                      </p>
+                      <p className="text-xs text-gray-400 mt-2">pred 1 týždňom</p>
+                    </div>
+
+                    <div className="bg-white shadow-md rounded-lg p-6 flex-shrink-0" style={{ width: '280px' }}>
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold">
+                          M
+                        </div>
+                        <div className="ml-3">
+                          <p className="font-semibold text-gray-800">Miroslav Baláž</p>
+                          <div className="flex text-yellow-400 text-sm">
+                            {'★'.repeat(4)}
+                            <span className="text-gray-300">★</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        "Veľmi spokojný s kvalitou služieb. Odporúčam pre biznis aj súkromné účely."
+                      </p>
+                      <p className="text-xs text-gray-400 mt-2">pred 2 mesiacmi</p>
+                    </div>
+
+                    <div className="bg-white shadow-md rounded-lg p-6 flex-shrink-0" style={{ width: '280px' }}>
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold">
+                          K
+                        </div>
+                        <div className="ml-3">
+                          <p className="font-semibold text-gray-800">Katarína Novotná</p>
+                          <div className="flex text-yellow-400 text-sm">
+                            {'★'.repeat(5)}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        "Perfektná komunikácia, auto pripravené presne na čas. Ceny sú výhodné a servis na vysokej úrovni."
+                      </p>
+                      <p className="text-xs text-gray-400 mt-2">pred 4 dňami</p>
+                    </div>
+                    
+                    <div className="bg-white shadow-md rounded-lg p-6 flex-shrink-0" style={{ width: '280px' }}>
+                      <div className="flex items-center mb-4">
+                        <div className="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold">
+                          R
+                        </div>
+                        <div className="ml-3">
+                          <p className="font-semibold text-gray-800">Richard Horváth</p>
+                          <div className="flex text-yellow-400 text-sm">
+                            {'★'.repeat(5)}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 text-sm">
+                        "Už tretíkrát si tu požičiavam auto a vždy som maximálne spokojný. Čisté vozidlá, profesionálny prístup."
+                      </p>
+                      <p className="text-xs text-gray-400 mt-2">pred 1 týždňom</p>
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+
+            <div className="text-center mt-8">
+              <a 
+                href="https://search.google.com/local/writereview?placeid=ChIJjWxy0Q1VUUYRTT1jajF5EhQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-200"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                Zanechajte nám recenziu
+              </a>
+            </div>
           </div>
-        </div>
-      </div>
+      </section>
+
     </div>
   );
 };
 
-export default FAQPage; 
+export default FAQPage;
