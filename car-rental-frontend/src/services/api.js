@@ -4,6 +4,15 @@ const API_BASE = 'https://carflow-reservation-system.onrender.com/api';
 // Tenant email for RIVAL company
 const TENANT_EMAIL = 'rival@test.sk';
 
+// Import car images as modules for production compatibility
+import ArkanaImg from '../assets/AUTA/RENAULT ARKANA/OG-Arkana.jpg';
+import OctaviaImg from '../assets/AUTA/SKODA OCTAVIA 4/OG-Octavia.png';
+import ScalaImg from '../assets/AUTA/SKODA SCALA ambition/OG-Scala.jpg';
+import MonteCarloImg from '../assets/AUTA/SKODA SCALA MonterCarlo/OG-MonteCarlo.jpeg';
+import CorollaImg from '../assets/AUTA/Toyota/OG-Corolla.jpg';
+import TarracoImg from '../assets/AUTA/SEAT TARRACO/OG-Tarraco.jpg';
+import TouranImg from '../assets/AUTA/VOLKSWAGEN TOURAN/OG-Touran.jpg';
+
 // API Configuration
 const API_CONFIG = {
   // Use tenant-specific endpoints when available
@@ -37,7 +46,7 @@ const mockCarsData = [
     features: ['air-conditioning', 'gps', 'bluetooth', 'rear-camera'],
     images: [
       {
-        url: '/src/assets/AUTA/RENAULT ARKANA/OG-Arkana.jpg',
+        url: ArkanaImg,
         description: 'Renault Arkana AT',
         isPrimary: true
       }
@@ -74,7 +83,7 @@ const mockCarsData = [
     features: ['air-conditioning', 'gps', 'bluetooth', 'cruise-control', 'extra-luggage'],
     images: [
       {
-        url: '/src/assets/AUTA/SKODA OCTAVIA 4/OG-Octavia.png',
+        url: OctaviaImg,
         description: 'Škoda Octavia 4 Combi AT',
         isPrimary: true
       }
@@ -111,7 +120,7 @@ const mockCarsData = [
     features: ['air-conditioning', 'bluetooth', 'usb-ports', 'cruise-control'],
     images: [
       {
-        url: '/src/assets/AUTA/SKODA SCALA ambition/OG-Scala.jpg',
+        url: ScalaImg,
         description: 'Škoda Scala Ambition AT',
         isPrimary: true
       }
@@ -148,7 +157,7 @@ const mockCarsData = [
     features: ['air-conditioning', 'gps', 'bluetooth', 'heated-seats', 'sport-package'],
     images: [
       {
-        url: '/src/assets/AUTA/SKODA SCALA MonterCarlo/OG-MonteCarlo.jpeg',
+        url: MonteCarloImg,
         description: 'Škoda Scala MonteCarlo AT',
         isPrimary: true
       }
@@ -185,7 +194,7 @@ const mockCarsData = [
     features: ['air-conditioning', 'bluetooth', 'rear-camera', 'hybrid'],
     images: [
       {
-        url: '/src/assets/AUTA/Toyota/OG-Corolla.jpg',
+        url: CorollaImg,
         description: 'Toyota Corolla AT',
         isPrimary: true
       }
@@ -222,7 +231,7 @@ const mockCarsData = [
     features: ['air-conditioning', 'gps', 'bluetooth', 'heated-seats', '4x4', 'leather-seats'],
     images: [
       {
-        url: '/src/assets/AUTA/SEAT TARRACO/OG-Tarraco.jpg',
+        url: TarracoImg,
         description: 'Seat Tarraco FR 4WD AT',
         isPrimary: true
       }
@@ -259,7 +268,7 @@ const mockCarsData = [
     features: ['air-conditioning', 'gps', 'bluetooth', 'heated-seats', 'extra-luggage', 'cruise-control'],
     images: [
       {
-        url: '/src/assets/AUTA/VOLKSWAGEN TOURAN/OG-Touran.jpg',
+        url: TouranImg,
         description: 'VW Touran Highline AT, 7 miestne',
         isPrimary: true
       }
