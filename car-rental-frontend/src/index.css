@@ -30,6 +30,11 @@
     transform: translateY(20px);
   }
   
+  /* Mobile menu smooth transitions */
+  .mobile-menu-transition {
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+  }
+  
   .page-enter-active {
     opacity: 1;
     transform: translateY(0);

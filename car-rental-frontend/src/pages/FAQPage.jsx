@@ -84,7 +84,7 @@ Akceptujeme tieto platobné karty:
                     className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 focus:outline-none focus:bg-gray-50 rounded-xl"
                     onClick={() => toggleFAQ(index)}
                   >
-                    <span className="text-lg font-medium text-gray-900 pr-4">
+                    <span className="text-sm sm:text-lg font-medium text-gray-900 pr-4">
                       {faq.question}
                     </span>
                     {openFAQ === index ? (
@@ -99,7 +99,7 @@ Akceptujeme tieto platobné karty:
                     }`}
                   >
                     <div className="px-6 pb-4">
-                      <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                      <div className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line">
                         {faq.answer}
                       </div>
                     </div>
@@ -145,8 +145,8 @@ Akceptujeme tieto platobné karty:
             {/* Slider Container */}
             <div className="relative overflow-hidden">
               {/* Fade gradients on sides */}
-              <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white via-white/90 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white via-white/60 sm:via-white/90 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white via-white/60 sm:via-white/90 to-transparent z-10 pointer-events-none"></div>
               
               {/* Scrolling container */}
               <div className="flex animate-scroll space-x-6 bg-white" style={{ width: 'calc(300px * 16)' }}>

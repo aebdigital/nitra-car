@@ -25,8 +25,14 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed left-1/2 transform -translate-x-1/2 z-50 bg-white shadow-lg backdrop-blur-md" style={{ top: '50px', width: '80%', borderRadius: '40px' }}>
-      <nav className="px-4 sm:px-6 lg:px-8">
+    <>
+      {/* Full page backdrop when mobile menu is open */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40" />
+      )}
+      
+      <header className="fixed left-1/2 transform -translate-x-1/2 z-50 bg-white shadow-lg backdrop-blur-md" style={{ top: '25px', width: '90%', borderRadius: '40px' }}>
+      <nav className={`px-4 sm:px-6 lg:px-8 ${mobileMenuOpen ? 'pb-2' : ''}`}>
         <div className="flex h-20 items-center justify-between">
           
           {/* Logo */}
@@ -112,37 +118,33 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg backdrop-blur-md rounded-lg mt-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`block px-4 py-3 text-lg font-semibold rounded-md transition-colors duration-200 ${
-                    isActive(item.href)
-                      ? 'text-white bg-blue-600'
-                      : 'text-black hover:text-gray-700 hover:bg-gray-100'
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+        <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-out ${
+          mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <div className="px-2 pt-2 pb-2">
+              {navigation.map((item, index) => (
+                <div key={item.name}>
+                  <Link
+                    to={item.href}
+                    className={`block px-4 py-3 text-lg font-semibold rounded-md transition-colors duration-200 ${
+                      isActive(item.href)
+                        ? 'text-white bg-blue-600'
+                        : 'text-black hover:text-gray-700 hover:bg-gray-100'
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                  {index < navigation.length - 1 && (
+                    <div className="border-b border-gray-200 mx-4"></div>
+                  )}
+                </div>
               ))}
-              <div className="border-t border-white/20 pt-2">
-                <Link
-                  to="/booking"
-                  className="block px-4 py-3 text-lg font-medium bg-blue-600 text-white rounded-md text-center"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Objednať auto
-                </Link>
-              </div>
-            </div>
           </div>
-        )}
+        </div>
       </nav>
-    </header>
+      </header>
+    </>
   );
 };
 

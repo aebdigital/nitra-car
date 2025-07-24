@@ -104,37 +104,37 @@ const CennikPage = () => {
         
         {/* Pricing Table */}
         <div className="overflow-x-auto shadow-lg rounded-lg bg-white">
-            <table className="w-full text-left">
+            <table className="w-full text-left min-w-[700px]">
               <thead>
                 <tr className="border-b-2 border-gray-200">
-                  <th className="py-2 px-6 text-gray-800 font-medium uppercase">AUTO</th>
-                  <th className="py-2 px-4 text-gray-800 font-medium text-center uppercase">1 DEŇ</th>
-                  <th className="py-2 px-4 text-gray-800 font-medium text-center uppercase">2–3 DNI</th>
-                  <th className="py-2 px-4 text-gray-800 font-medium text-center uppercase">4–9 DNI</th>
-                  <th className="py-2 px-4 text-gray-800 font-medium text-center uppercase">10–25 DNI</th>
-                  <th className="py-2 px-4 text-gray-800 font-medium text-center uppercase">26+ DNI</th>
-                  <th className="py-2 px-4 text-gray-800 font-medium text-center uppercase">ZÁLOHA</th>
+                  <th className="py-2 px-3 sm:px-6 text-gray-800 font-medium uppercase text-xs sm:text-sm">AUTO</th>
+                  <th className="py-2 px-2 sm:px-4 text-gray-800 font-medium text-center uppercase text-xs sm:text-sm whitespace-nowrap">1 DEŇ</th>
+                  <th className="py-2 px-2 sm:px-4 text-gray-800 font-medium text-center uppercase text-xs sm:text-sm whitespace-nowrap">2–3 DNI</th>
+                  <th className="py-2 px-2 sm:px-4 text-gray-800 font-medium text-center uppercase text-xs sm:text-sm whitespace-nowrap">4–9 DNI</th>
+                  <th className="py-2 px-2 sm:px-4 text-gray-800 font-medium text-center uppercase text-xs sm:text-sm whitespace-nowrap">10–25 DNI</th>
+                  <th className="py-2 px-2 sm:px-4 text-gray-800 font-medium text-center uppercase text-xs sm:text-sm whitespace-nowrap">26+ DNI</th>
+                  <th className="py-2 px-2 sm:px-4 text-gray-800 font-medium text-center uppercase text-xs sm:text-sm whitespace-nowrap">ZÁLOHA</th>
                 </tr>
               </thead>
               <tbody>
                 {carPricing.map((car, index) => (
                   <tr key={index} className={`${index === carPricing.length - 1 ? '' : 'border-b border-gray-200'} hover:bg-gray-50 transition-colors`}>
-                    <td className="py-2 px-6">
-                      <div className="flex items-center space-x-4">
+                    <td className="py-2 px-3 sm:px-6">
+                      <div className="flex items-center space-x-2 sm:space-x-4">
                         <img 
                           src={car.image} 
                           alt={car.name}
-                          className="w-16 h-16 object-cover rounded-lg"
+                          className="w-16 h-12 sm:w-20 sm:h-16 object-cover rounded-lg flex-shrink-0"
                         />
-                        <span className="font-normal text-gray-900">{car.name}</span>
+                        <span className="font-normal text-gray-900 text-xs sm:text-sm leading-tight">{car.name}</span>
                       </div>
                     </td>
-                    <td className="py-2 px-4 text-center font-normal text-gray-900">{car.prices['1_day']}</td>
-                    <td className="py-2 px-4 text-center font-normal text-gray-900">{car.prices['2-3_days']}</td>
-                    <td className="py-2 px-4 text-center font-normal text-gray-900">{car.prices['4-9_days']}</td>
-                    <td className="py-2 px-4 text-center font-normal text-gray-900">{car.prices['10-25_days']}</td>
-                    <td className="py-2 px-4 text-center font-normal text-gray-900">{car.prices['26+_days']}</td>
-                    <td className="py-2 px-4 text-center font-normal text-gray-900">200 €</td>
+                    <td className="py-2 px-2 sm:px-4 text-center font-normal text-gray-900 text-xs sm:text-sm whitespace-nowrap">{car.prices['1_day']}</td>
+                    <td className="py-2 px-2 sm:px-4 text-center font-normal text-gray-900 text-xs sm:text-sm whitespace-nowrap">{car.prices['2-3_days']}</td>
+                    <td className="py-2 px-2 sm:px-4 text-center font-normal text-gray-900 text-xs sm:text-sm whitespace-nowrap">{car.prices['4-9_days']}</td>
+                    <td className="py-2 px-2 sm:px-4 text-center font-normal text-gray-900 text-xs sm:text-sm whitespace-nowrap">{car.prices['10-25_days']}</td>
+                    <td className="py-2 px-2 sm:px-4 text-center font-normal text-gray-900 text-xs sm:text-sm whitespace-nowrap">{car.prices['26+_days']}</td>
+                    <td className="py-2 px-2 sm:px-4 text-center font-normal text-gray-900 text-xs sm:text-sm whitespace-nowrap">200 €</td>
                   </tr>
                 ))}
               </tbody>
@@ -173,8 +173,8 @@ const CennikPage = () => {
             {/* Slider Container */}
             <div className="relative overflow-hidden">
               {/* Fade gradients on sides */}
-              <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white via-white/90 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white via-white/60 sm:via-white/90 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white via-white/60 sm:via-white/90 to-transparent z-10 pointer-events-none"></div>
               
               {/* Scrolling container */}
               <div className="flex animate-scroll space-x-6 bg-white" style={{ width: 'calc(300px * 16)' }}>

@@ -120,7 +120,7 @@ const ContactPage = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-5 lg:col-start-8 bg-white rounded-lg shadow-sm px-8 pt-8 pb-6 self-start">
+          <div className="lg:col-span-5 lg:col-start-8 bg-white rounded-lg shadow-sm px-4 sm:px-8 pt-6 sm:pt-8 pb-6 self-start">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Pošlite nám správu</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">

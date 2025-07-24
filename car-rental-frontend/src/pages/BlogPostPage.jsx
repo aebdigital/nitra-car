@@ -108,17 +108,13 @@ const BlogPostPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       
-      {/* Back Navigation */}
-      <div className="bg-white border-b">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4" style={{ maxWidth: '90rem' }}>
-          <Link 
-            to="/blog" 
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-          >
-            <ArrowLeftIcon className="h-4 w-4 mr-2" />
-            Späť na blog
-          </Link>
-        </div>
+      {/* Mini Hero Section */}
+      <div 
+        className="relative h-[20vh] bg-cover bg-top"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${getRandomHeroImage(parseInt(id) || 1)})`
+        }}
+      >
       </div>
 
       {/* Article Header */}
@@ -149,8 +145,8 @@ const BlogPostPage = () => {
             </h1>
 
             {/* Author and Date */}
-            <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-200">
-              <div className="flex items-center gap-4">
+            <div className="mb-8 pb-8 border-b border-gray-200">
+              <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
                   {blogPost.author.charAt(0)}
                 </div>
@@ -171,7 +167,7 @@ const BlogPostPage = () => {
               </div>
               
               {/* Share and Like Buttons */}
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
                 <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
                   <HeartIcon className="h-4 w-4" />
                   <span>Páči sa mi</span>
@@ -201,10 +197,21 @@ const BlogPostPage = () => {
               }}
             />
 
+            {/* Back Navigation */}
+            <div className="mt-8 mb-4">
+              <Link 
+                to="/blog" 
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <ArrowLeftIcon className="h-4 w-4 mr-2" />
+                Späť na blog
+              </Link>
+            </div>
+
             {/* Article Footer */}
             <div className="mt-12 pt-8 border-t border-gray-200">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                   <span className="text-gray-600">Bol tento článok užitočný?</span>
                   <div className="flex gap-2">
                     <button className="px-4 py-2 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors">
@@ -215,7 +222,7 @@ const BlogPostPage = () => {
                     </button>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
                   <span className="text-gray-600">Zdieľať:</span>
                   <div className="flex gap-2">
                     <button className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
