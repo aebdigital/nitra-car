@@ -249,9 +249,9 @@ const FleetPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredCars.map((car) => (
                   <Link key={car._id} to={`/car/${car._id}`} className="block">
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200 h-80 flex flex-col">
                       {/* Car Image */}
-                      <div className="h-48 bg-gray-200">
+                      <div className="h-48 bg-gray-200 flex-shrink-0">
                         <img
                           src={car.images?.[0]?.url || '/placeholder-car.jpg'}
                           alt={`${car.brand} ${car.model}`}
@@ -260,11 +260,11 @@ const FleetPage = () => {
                       </div>
                       
                       {/* Car Details */}
-                      <div className="p-4">
+                      <div className="p-4 flex-1 flex flex-col">
                         {/* Header with Price */}
-                        <div className="flex justify-between items-start mb-2">
-                          <div>
-                            <h3 className="text-lg font-semibold text-gray-900">
+                        <div className="flex justify-between items-start mb-2 flex-1">
+                          <div className="flex-1 min-w-0 pr-2">
+                            <h3 className="text-lg font-semibold text-gray-900 leading-tight min-h-[3.5rem] flex items-start">
                               {car.brand} {car.model}
                             </h3>
                             <p className="text-sm text-gray-500 capitalize">
@@ -274,7 +274,7 @@ const FleetPage = () => {
                                car.category === 'viacmiestne' ? 'Viacmiestne' : car.category}
                             </p>
                           </div>
-                          <div className="text-right">
+                          <div className="text-right flex-shrink-0">
                             <p className="text-lg font-bold text-black">{car.dailyRate}€</p>
                             <div className="flex items-center space-x-1">
                               <StarIcon className="h-4 w-4 text-yellow-400 fill-current" />

@@ -27,7 +27,7 @@ const mockCarsData = [
     transmission: 'automatic',
     seats: 5,
     doors: 4,
-    dailyRate: 45,
+    dailyRate: 37,
     weeklyRate: 280,
     monthlyRate: 1100,
     power: '110kW',
@@ -53,43 +53,6 @@ const mockCarsData = [
     }
   },
   
-  // Seat Tarraco FR 4WD AT
-  {
-    _id: 'tar1',
-    brand: 'Seat',
-    model: 'Tarraco FR 4WD AT',
-    year: 2023,
-    category: 'vyssia',
-    fuelType: 'diesel',
-    transmission: 'automatic',
-    seats: 7,
-    doors: 4,
-    dailyRate: 70,
-    weeklyRate: 450,
-    monthlyRate: 1800,
-    power: '150kW',
-    status: 'available',
-    deposit: 1000,
-    description: 'Výkonné 7-miestne SUV s pohonom všetkých kolies a športovým paketom FR.',
-    features: ['air-conditioning', 'gps', 'bluetooth', 'heated-seats', '4x4', 'leather-seats'],
-    images: [
-      {
-        url: '/src/assets/AUTA/SEAT TARRACO/OG-Tarraco.jpg',
-        description: 'Seat Tarraco FR 4WD AT',
-        isPrimary: true
-      }
-    ],
-    location: {
-      name: 'Bratislava',
-      address: {
-        street: 'Záhradnícka 68',
-        city: 'Bratislava',
-        zipCode: '821 08',
-        country: 'Slovensko'
-      }
-    }
-  },
-  
   // Škoda Octavia 4 Combi AT
   {
     _id: 'oct1',
@@ -101,7 +64,7 @@ const mockCarsData = [
     transmission: 'automatic',
     seats: 5,
     doors: 4,
-    dailyRate: 50,
+    dailyRate: 37,
     weeklyRate: 320,
     monthlyRate: 1250,
     power: '110kW',
@@ -138,7 +101,7 @@ const mockCarsData = [
     transmission: 'automatic',
     seats: 5,
     doors: 4,
-    dailyRate: 35,
+    dailyRate: 30,
     weeklyRate: 230,
     monthlyRate: 900,
     power: '85kW',
@@ -175,7 +138,7 @@ const mockCarsData = [
     transmission: 'automatic',
     seats: 5,
     doors: 4,
-    dailyRate: 42,
+    dailyRate: 30,
     weeklyRate: 260,
     monthlyRate: 1020,
     power: '110kW',
@@ -212,7 +175,7 @@ const mockCarsData = [
     transmission: 'automatic',
     seats: 5,
     doors: 4,
-    dailyRate: 38,
+    dailyRate: 34,
     weeklyRate: 240,
     monthlyRate: 950,
     power: '90kW',
@@ -238,7 +201,44 @@ const mockCarsData = [
     }
   },
   
-  // VW Touran Highline AT, 7 miestne
+  // Seat Tarraco FR 4WD AT (moved to 6th position)
+  {
+    _id: 'tar1',
+    brand: 'Seat',
+    model: 'Tarraco FR 4WD AT',
+    year: 2023,
+    category: 'vyssia',
+    fuelType: 'diesel',
+    transmission: 'automatic',
+    seats: 7,
+    doors: 4,
+    dailyRate: 60,
+    weeklyRate: 450,
+    monthlyRate: 1800,
+    power: '150kW',
+    status: 'available',
+    deposit: 1000,
+    description: 'Výkonné 7-miestne SUV s pohonom všetkých kolies a športovým paketom FR.',
+    features: ['air-conditioning', 'gps', 'bluetooth', 'heated-seats', '4x4', 'leather-seats'],
+    images: [
+      {
+        url: '/src/assets/AUTA/SEAT TARRACO/OG-Tarraco.jpg',
+        description: 'Seat Tarraco FR 4WD AT',
+        isPrimary: true
+      }
+    ],
+    location: {
+      name: 'Bratislava',
+      address: {
+        street: 'Záhradnícka 68',
+        city: 'Bratislava',
+        zipCode: '821 08',
+        country: 'Slovensko'
+      }
+    }
+  },
+  
+  // VW Touran Highline AT, 7 miestne (moved to last position)
   {
     _id: 'tou1',
     brand: 'Volkswagen',
@@ -249,7 +249,7 @@ const mockCarsData = [
     transmission: 'automatic',
     seats: 7,
     doors: 4,
-    dailyRate: 65,
+    dailyRate: 42,
     weeklyRate: 420,
     monthlyRate: 1650,
     power: '110kW',
