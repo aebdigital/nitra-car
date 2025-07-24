@@ -29,6 +29,11 @@ import { carsAPI } from '../services/api';
 import Slider1 from '../assets/Slider1.jpg';
 import Slider2 from '../assets/Slider2.jpg';
 import Slider3 from '../assets/Slider3.jpg';
+// Car images for popular cars section
+import ScalaImg from '../assets/AUTA/SKODA SCALA ambition/OG-Scala.jpg';
+import CorollaImg from '../assets/AUTA/Toyota/OG-Corolla.jpg';
+import ArkanaImg from '../assets/AUTA/RENAULT ARKANA/OG-Arkana.jpg';
+import TouranImg from '../assets/AUTA/VOLKSWAGEN TOURAN/OG-Touran.jpg';
 
 const HomePage = () => {
   const [startDate, setStartDate] = useState('');
@@ -87,7 +92,7 @@ const HomePage = () => {
       _id: 'sca1',
       brand: 'Škoda',
       model: 'Scala Ambition AT',
-      image: '/src/assets/AUTA/SKODA SCALA ambition/OG-Scala.jpg',
+      image: ScalaImg,
       price: 35,
       seats: 5,
       transmission: 'automatic',
@@ -100,7 +105,7 @@ const HomePage = () => {
       _id: 'cor1',
       brand: 'Toyota',
       model: 'Corolla AT',
-      image: '/src/assets/AUTA/Toyota/OG-Corolla.jpg',
+      image: CorollaImg,
       price: 38,
       seats: 5,
       transmission: 'automatic',
@@ -113,7 +118,7 @@ const HomePage = () => {
       _id: 'ark1',
       brand: 'Renault',
       model: 'Arkana AT',
-      image: '/src/assets/AUTA/RENAULT ARKANA/OG-Arkana.jpg',
+      image: ArkanaImg,
       price: 45,
       seats: 5,
       transmission: 'automatic',
@@ -126,7 +131,7 @@ const HomePage = () => {
       _id: 'tou1',
       brand: 'Volkswagen',
       model: 'Touran Highline AT, 7 miestne',
-      image: '/src/assets/AUTA/VOLKSWAGEN TOURAN/OG-Touran.jpg',
+      image: TouranImg,
       price: 65,
       seats: 7,
       transmission: 'automatic',
